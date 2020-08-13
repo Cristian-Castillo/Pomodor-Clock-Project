@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+
+import {Provider} from 'react-redux'
+import {createStore,combineReducers} from 'redux'
+
+import reducerBreak from './store/reducer/ReducerBreak'
+import reducerSession from './store/reducer/ReducerSession'
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+/* 2 state management system in place */
+const rootReducer = combineReducers({
+  reBreak:reducerBreak,
+  reSession:reducerSession,
+})
+
+/* Created Store to hold state data */
+const store = createStore(rootReducer);
+
+/* Wrapped my app with our Provider helps connect state to app
+and passed as props our store which holds my state */
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
