@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+/* Tools needed to connect, create store, and share state */
 import {Provider} from 'react-redux'
 import {createStore,combineReducers} from 'redux'
 
+/* State management of actions and dispatch */
 import reducerBreak from './store/reducer/ReducerBreak'
 import reducerSession from './store/reducer/ReducerSession'
 
