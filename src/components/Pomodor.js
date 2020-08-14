@@ -67,10 +67,7 @@ class Pomodor extends Component {
     }
     /* End of Button Animation for DOM */
 
-    render() {
-
-        const getSessionValue = this.props.ctr
-        const getBreakValue = this.props.ctr2
+    render() {        
 
         return (
             <div className ='App-header'>
@@ -116,24 +113,27 @@ class Pomodor extends Component {
                             </div>
                         </div>
                         <div style= {{marginTop:'30px'}} className = 'row'>
-                            <SessionTimeDisplay prop3 = '25 : 00'/>
+                            <SessionTimeDisplay prop3 = {this.props.masterCtr}/>
                             <div style = {{margin:'auto'}}>
                                 <div className = 'row'>
                                     <div className = 'col'>
                                         <h3>
                                             <button  onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
-                                                onClick = {this.props.subSessionCount}
-                                                className ='playStyle' onClick = {'tacos'}><FaPlayCircle />
+                                                className ='playStyle' 
+                                                onClick = {()=>{
+                                                    /* Invoked Anonymous function and 
+                                                    set the user values for session & Break*/
+                                                    this.props.playHandle(this.props.ctr,this.props.ctr2)
+                                                }}><FaPlayCircle />
                                             </button>
                                         </h3>
                                     </div>
                                     <div className = 'col'>
                                         <h3><button onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
-                                                onClick = {this.props.subSessionCount} 
                                                 className ='playStyle' 
-                                                onClick = {'tacos'}><FaPauseCircle />
+                                                ><FaPauseCircle />
                                             </button>
                                         </h3>
                                     </div>
@@ -141,8 +141,9 @@ class Pomodor extends Component {
                                         <h3 style = {{color:'cyan'}}>
                                             <button onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
-                                                onClick = {this.props.subSessionCount} 
-                                                className ='playStyle' onClick = {'tacos'}><MdSettingsBackupRestore />
+                                                className ='playStyle'
+                                                onClick = {this.props.resetHandle}>
+                                                <MdSettingsBackupRestore />
                                             </button>
                                         </h3>
                                     </div>
@@ -168,6 +169,7 @@ const mapStateToProps = state => {
     return{
         ctr:state.reSession.countSession,
         ctr2:state.reBreak.countBreak,
+        masterCtr:state.reMaster.masterSessionCount
     }
 }
 
@@ -178,9 +180,10 @@ const mapDispatchToProps = dispatch => {
         subSessionCount:()=> dispatch({type:ActionTypes.SUBTRACT}),
         incrementCount:()=> dispatch({type:ActionTypes.INCREMENT}),
         decrementCount:()=> dispatch({type:ActionTypes.DECREMENT}),
+        playHandle:(num1,num2)=> dispatch({type:ActionTypes.PLAY,sessionVal:num1,breakVal:num2}),
+        resetHandle:()=> dispatch({type:ActionTypes.RESET})
     }
 }
 
 /* Connect and map state and dispatch with app component */
 export default connect(mapStateToProps,mapDispatchToProps)(Pomodor);
-

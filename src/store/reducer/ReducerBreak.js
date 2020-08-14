@@ -26,6 +26,8 @@ const reducer = (state = initialState, action) => {
             else{
                 return{...state}
             }
+        case ActionTypes.RESET:
+            return{...initialState}
         default:
             return state
     }
