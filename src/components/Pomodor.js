@@ -22,6 +22,7 @@ class Pomodor extends Component {
         for(let i = 0; i < document.getElementsByTagName('button').length;i++){
             buttonContainer[i] = document.getElementsByTagName('button')[i];
             buttonContainer[i].style.backgroundColor = '#282c34'
+            buttonContainer[i].style.color = '#61dafb'
             buttonContainer[i].addEventListener('click',this.handleButtonBackground);
         }
     }
@@ -48,8 +49,18 @@ class Pomodor extends Component {
             else if(buttonContainer[i] === buttonContainer[3]){
                 buttonContainer[i].addEventListener('click',foo);
             }
+            else if(buttonContainer[i] === buttonContainer[4]){
+                buttonContainer[i].addEventListener('click',foo);
+            }
+            else if(buttonContainer[i] === buttonContainer[5]){
+                buttonContainer[i].addEventListener('click',foo);
+            }
+            else if(buttonContainer[i] === buttonContainer[6]){
+                buttonContainer[i].addEventListener('click',foo);
+            }
             function foo(){
                 buttonContainer[i].style.backgroundColor = '#61dafb'
+                buttonContainer[i].style.color = 'black'
                 buttonContainer[i].removeEventListener('click',foo)
             }
         }
@@ -109,13 +120,31 @@ class Pomodor extends Component {
                             <div style = {{margin:'auto'}}>
                                 <div className = 'row'>
                                     <div className = 'col'>
-                                        <h3><button  className ='playStyle' onClick = {'tacos'}><FaPlayCircle /></button></h3>
+                                        <h3>
+                                            <button  onMouseDown = {this.animateHandleButton} 
+                                                onMouseLeave = {this.animateHandleButton} 
+                                                onClick = {this.props.subSessionCount}
+                                                className ='playStyle' onClick = {'tacos'}><FaPlayCircle />
+                                            </button>
+                                        </h3>
                                     </div>
                                     <div className = 'col'>
-                                        <h3><button  className ='playStyle' onClick = {'tacos'}><FaPauseCircle /></button></h3>
+                                        <h3><button onMouseDown = {this.animateHandleButton} 
+                                                onMouseLeave = {this.animateHandleButton} 
+                                                onClick = {this.props.subSessionCount} 
+                                                className ='playStyle' 
+                                                onClick = {'tacos'}><FaPauseCircle />
+                                            </button>
+                                        </h3>
                                     </div>
                                     <div className = 'col'>
-                                        <h3 style = {{color:'cyan'}}><button  className ='playStyle' onClick = {'tacos'}><MdSettingsBackupRestore /></button></h3>
+                                        <h3 style = {{color:'cyan'}}>
+                                            <button onMouseDown = {this.animateHandleButton} 
+                                                onMouseLeave = {this.animateHandleButton} 
+                                                onClick = {this.props.subSessionCount} 
+                                                className ='playStyle' onClick = {'tacos'}><MdSettingsBackupRestore />
+                                            </button>
+                                        </h3>
                                     </div>
                                 </div>
                             </div>
