@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    margin:-15px 0px 0px 0px;
 }
 /* Button styles */
 button{
@@ -18,11 +17,6 @@ button{
     border:3px solid var(--customCyan);
     height:40px;
     width:40px;
-}
-
-button:hover{
-    background-color:var(--customCyan);
-    color:var(--darkKnight);
 }
 
 button:focus {outline:0;}
@@ -61,7 +55,7 @@ button:focus {outline:0;}
 .pomodorTitle{
     font-size:4.2rem;
     margin:auto;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 /* Play button */

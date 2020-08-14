@@ -1,7 +1,7 @@
 import * as ActionTypes from './ActionTypes'
 
 const initialState = {
-    countBreak:1
+    countBreak:5
 }
 
 const reducer = (state = initialState, action) => {
