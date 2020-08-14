@@ -9,6 +9,7 @@ import {createStore,combineReducers} from 'redux'
 /* State management of actions and dispatch */
 import reducerBreak from './store/reducer/ReducerBreak'
 import reducerSession from './store/reducer/ReducerSession'
+import reducerMaster from './store/reducer/MasterReducer'
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -17,6 +18,7 @@ import * as serviceWorker from './serviceWorker';
 const rootReducer = combineReducers({
   reBreak:reducerBreak,
   reSession:reducerSession,
+  reMaster:reducerMaster
 })
 
 /* Created Store to hold state data */

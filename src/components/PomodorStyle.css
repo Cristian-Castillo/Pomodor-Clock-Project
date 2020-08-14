@@ -48,18 +48,26 @@ button:focus {outline:0;}
 }
 /* All rows */
 .row{
-    margin-top:20px;
+    margin-top:10px;
 }
 
 /* Main Pomodor Title */
 .pomodorTitle{
     font-size:4.2rem;
     margin:auto;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
-/* Play button */
+/* Play, Pause, and Reset button */
 .playStyle{
     margin-top:35px;
+    border-style:none;
+    background-color:var(--darkKnight);
+    height:60px;
+    width:60px;
+    padding:0px 0px 6px 0px;
+    border-radius:none;
+    color:var(--customCyan);
+    outline:none;
+    border:3px solid var(--customCyan);
 }
-

@@ -8,6 +8,9 @@ import * as ActionTypes from  '../store/reducer/ActionTypes'
 import {connect} from 'react-redux'
 
 import './PomodorStyle.css'
+import { FaPlayCircle } from 'react-icons/fa'
+import {FaPauseCircle} from 'react-icons/fa'
+import {MdSettingsBackupRestore} from 'react-icons/md'
 
 class Pomodor extends Component {
 
@@ -55,6 +58,9 @@ class Pomodor extends Component {
 
     render() {
 
+        const getSessionValue = this.props.ctr
+        const getBreakValue = this.props.ctr2
+
         return (
             <div className ='App-header'>
                     {/* Container with child components to display rendered props from state redux */}
@@ -66,14 +72,14 @@ class Pomodor extends Component {
                             <div className = "col">
                                 <h4><span> {/* Button Session Config */}
                                         <button onMouseDown = {this.animateHandleButton} 
-                                        onMouseLeave = {this.animateHandleButton} 
-                                        onClick = {this.props.subSessionCount} 
-                                        className = 'btn1'>-</button>
-                                        Session Length
-                                        <button onMouseDown = {this.animateHandleButton} 
-                                        onMouseLeave = {this.animateHandleButton} 
-                                        onClick = {this.props.addSessionCount} 
-                                        className = 'btn2'>+
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            onClick = {this.props.subSessionCount} 
+                                            className = 'btn1'>-</button>
+                                            Session Length
+                                            <button onMouseDown = {this.animateHandleButton} 
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            onClick = {this.props.addSessionCount} 
+                                            className = 'btn2'>+
                                         </button>
                                     </span>
                                     <SessionLength prop2 = {this.props.ctr}/>
@@ -84,14 +90,14 @@ class Pomodor extends Component {
                             <div className = "col">
                                 <h4><span>{/* Button Break Config */}
                                         <button onMouseDown = {this.animateHandleButton} 
-                                        onMouseLeave = {this.animateHandleButton} 
-                                        onClick = {this.props.decrementCount} 
-                                        className='btn3'>-</button>
-                                        Break Length
-                                        <button onMouseDown = {this.animateHandleButton} 
-                                        onMouseLeave = {this.animateHandleButton} 
-                                        onClick = {this.props.incrementCount} 
-                                        className='btn4'>+
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            onClick = {this.props.decrementCount} 
+                                            className='btn3'>-</button>
+                                            Break Length
+                                            <button onMouseDown = {this.animateHandleButton} 
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            onClick = {this.props.incrementCount} 
+                                            className='btn4'>+
                                         </button>
                                     </span>
                                     <BreakLength prop1 = {this.props.ctr2}/>
@@ -101,7 +107,17 @@ class Pomodor extends Component {
                         <div style= {{marginTop:'30px'}} className = 'row'>
                             <SessionTimeDisplay prop3 = '25 : 00'/>
                             <div style = {{margin:'auto'}}>
-                                <h3 className ='playStyle'>Play</h3>
+                                <div className = 'row'>
+                                    <div className = 'col'>
+                                        <h3><button  className ='playStyle' onClick = {'tacos'}><FaPlayCircle /></button></h3>
+                                    </div>
+                                    <div className = 'col'>
+                                        <h3><button  className ='playStyle' onClick = {'tacos'}><FaPauseCircle /></button></h3>
+                                    </div>
+                                    <div className = 'col'>
+                                        <h3 style = {{color:'cyan'}}><button  className ='playStyle' onClick = {'tacos'}><MdSettingsBackupRestore /></button></h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -126,8 +142,9 @@ const mapDispatchToProps = dispatch => {
         addSessionCount:()=> dispatch({type:ActionTypes.ADD}),
         subSessionCount:()=> dispatch({type:ActionTypes.SUBTRACT}),
         incrementCount:()=> dispatch({type:ActionTypes.INCREMENT}),
-        decrementCount:()=> dispatch({type:ActionTypes.DECREMENT})
+        decrementCount:()=> dispatch({type:ActionTypes.DECREMENT}),
     }
 }
+
 /* Connect and map state and dispatch with app component */
 export default connect(mapStateToProps,mapDispatchToProps)(Pomodor);
