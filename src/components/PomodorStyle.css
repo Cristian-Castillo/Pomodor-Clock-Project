@@ -11,14 +11,14 @@
 
 /* Responsive div holds child components */ 
 .container-fluid{
-    margin:auto 3px auto 3px;
+    margin:3px;
     width:100%;
     padding-bottom:60px;
+
 }
 
 /* Break & Session grid sys boot */
 .col-6{
-    margin-top:50px;
     width:500px;
     height:200px;
 }
@@ -26,7 +26,8 @@
 /* Header Title of Body */
 .pomodorTitle{
     font-size:75px;
-    margin-top:-100px;
+    position:relative;
+    top:10px;
 }
 
 /* Play button */
