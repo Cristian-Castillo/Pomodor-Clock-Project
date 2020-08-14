@@ -4,9 +4,9 @@ import './BreakLengthStyle.css'
 const BreakLength = (props) => {
     return (
         <div className ='container-fuild'>
-            <div className ='breakLength-box'>
-                <h1>Break Length</h1>
-                <h1>{props.prop1}</h1>
+            <div>
+                <h3>Break Length</h3>
+                <h3>{props.prop1}</h3>
             </div>
         </div>
     )

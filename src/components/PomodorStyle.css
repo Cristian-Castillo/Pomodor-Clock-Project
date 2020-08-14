@@ -11,41 +11,24 @@
 
 /* Responsive div holds child components */ 
 .container-fluid{
-    padding-bottom:120px;
-    width:auto;
-    margin:auto;
+    margin: 0px 5px 10px 5px;
 }
 
-/* Break & Session grid sys boot */
+/* Break Len & Session Len Cols */
 .col-6{
-    height:200px;
-    width:300px;
-    position:relative;
-    top:150px;
+    margin-top:20px;
+    padding:22px;
 }
 
-/* col-6 control Break & Session grid sys boot */
-.r1{
-    margin-top:-200px;
-}
-
-/* Header Title of Body */
+/* Main Pomodor Title */
 .pomodorTitle{
     font-size:4.2rem;
-    margin-top:50px;
-}
-
-/* Play button & Style */
-.playStyle{
-    font-size:3rem;
-}
-/* Play button & Style */
-.playRow{
-    position:relative;
-    top:120px;
+    margin-top:30px;
     margin:auto;
-    width:150px;
-    padding-left:15px;
 }
 
+/* Play button */
+.playStyle{
+    margin-top:15px;
+}
 

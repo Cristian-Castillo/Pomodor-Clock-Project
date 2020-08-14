@@ -4,9 +4,9 @@ import './SessionLengthStyle.css'
 const SessionLength = (props) => {
     return (
         <div className ='container-fuild'>
-            <div className ='sessionLength-box'>
-                <h1>Session Length</h1>
-                <h1>{props.prop2}</h1>
+            <div>
+                <h3>Session Length</h3>
+                <h3>{props.prop2}</h3>
             </div>
         </div>
     )

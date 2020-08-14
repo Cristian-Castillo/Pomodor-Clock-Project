@@ -13,20 +13,20 @@ class Pomodor extends Component {
     render() {
         return (
             <div className ='App-header'>
-                <div className ='row titleRow'>
-                    <h1 className = 'pomodorTitle'>Pomodor Clock</h1>
-                </div>
                     {/* Container with child components to display rendered props from state redux */}
                     <div className ='container-fluid'>
-                        <div className ='row r1'>
+                        <div className ='row'>
+                            <h1 className = 'pomodorTitle'>Pomodor Clock</h1>
+                        </div>
+                        <div className ='row'>
                             <div className ='col-6'><BreakLength prop1 = {'5'}/></div>
                             <div className = 'col-6'><SessionLength prop2 = {'25'} /></div>
                         </div>
                         <div className = 'row'>
                             <SessionTimeDisplay prop3 = '25 : 00'/>
-                        </div>
-                        <div className = 'row playRow'>
-                            <h3 className ='playStyle'>Play</h3>
+                            <div style = {{margin:'auto'}}>
+                                <h3 className ='playStyle'>Play</h3>
+                            </div>
                         </div>
                     </div>
 
