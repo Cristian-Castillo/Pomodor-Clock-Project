@@ -1,16 +1,37 @@
-import * as ActionType from './ActionTypes'
+import * as ActionTypes from './ActionTypes'
 
 const initialState = {
-    counter:0
+    countSession:25
 }
 
 const reducer = (state = initialState, action) => {
-    if(action.type == ActionType.ADD){
-        return{
-            ...state,
-            counter:state.counter+1
-        }
+
+    switch(action.type){
+
+        case ActionTypes.ADD:
+
+            if(state.countSession < 60){
+                return{
+                    ...state,
+                    countSession:state.countSession+1
+                }
+            }
+            else{
+                return{...state}
+            }
+        case ActionTypes.SUBTRACT:
+            if(state.countSession > 1){
+                return{
+                    ...state,
+                    countSession:state.countSession-1
+                }
+            }
+            else{
+                return{...state}
+            }
+        default:
+            return state
     }
 } 
 
-export default initialState;
+export default reducer;

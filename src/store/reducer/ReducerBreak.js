@@ -1,16 +1,34 @@
-import * as ActionType from './ActionTypes'
+import * as ActionTypes from './ActionTypes'
 
 const initialState = {
-    counter2:0
+    countBreak:1
 }
 
 const reducer = (state = initialState, action) => {
-    if(action.type == ActionType.ADD2){
-        return{
-            ...state,
-            counter:state.counter+1
-        }
+    switch(action.type){
+        case ActionTypes.INCREMENT:
+            if(state.countBreak < 60){
+                return{
+                    ...state,
+                    countBreak:state.countBreak+1
+                }
+            }
+            else{
+                return{...state}
+            }
+        case ActionTypes.DECREMENT:
+            if(state.countBreak > 1){
+                return{
+                    ...state,
+                    countBreak:state.countBreak-1
+                }
+            }
+            else{
+                return{...state}
+            }
+        default:
+            return state
     }
 } 
 
-export default initialState;
+export default reducer;

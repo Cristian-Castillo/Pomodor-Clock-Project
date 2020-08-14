@@ -9,7 +9,7 @@
     font-size: calc(10px + 2vmin);
     margin:-15px 0px 0px 0px;
 }
-
+/* Button styles */
 button{
     color:var(--customCyan);
     background-color:var(--darkKnight);
@@ -46,6 +46,7 @@ button:focus {outline:0;}
     position:relative;
     left:22px;
 }
+/* End of Button styles */
 
 /* Responsive div holds child components */ 
 .container-fluid{
