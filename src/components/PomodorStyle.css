@@ -11,7 +11,7 @@
 
 /* Responsive div holds child components */ 
 .container-fluid{
-    height:400px;
+    padding-bottom:120px;
     width:auto;
     margin:auto;
 }
@@ -20,20 +20,32 @@
 .col-6{
     height:200px;
     width:300px;
+    position:relative;
+    top:150px;
+}
+
+/* col-6 control Break & Session grid sys boot */
+.r1{
+    margin-top:-200px;
 }
 
 /* Header Title of Body */
 .pomodorTitle{
-    margin-top:200px;
-    font-size:3em;
+    font-size:4.2rem;
+    margin-top:50px;
 }
 
-/* Play button */
+/* Play button & Style */
 .playStyle{
-    margin:-100px auto auto auto;
-    font-size:35px;
+    font-size:3rem;
+}
+/* Play button & Style */
+.playRow{
+    position:relative;
+    top:120px;
+    margin:auto;
+    width:150px;
+    padding-left:15px;
 }
 
-.r1{
-    margin-top:-200px;
-}
+
