@@ -24,21 +24,26 @@ class Pomodor extends Component {
                                 </div>
                                 <div className ='col'>
                                     <h4 style={{fontSize:'2rem'}}>Break Length</h4>
+                                    <div className ='col'>
+                                        <BreakLength prop1 = {'5'}/>
+                                    </div>
                                 </div>
                                 <div className ='col'>
                                     <button>+</button>
                                 </div>
-
                                 <div className ='col'>
                                     <button>-</button>
                                 </div>
                                 <div className ='col'>
                                     <h4 style={{fontSize:'2rem'}}>Session Length</h4>
+                                    <div className ='col'>
+                                        <SessionLength prop2 = {'25'}/>
+                                    </div>
                                 </div>
                                 <div className ='col'>
                                     <button>+</button>
                                 </div>
-                            </div>
+                            </div>              
                         <div style= {{marginTop:'30px'}} className = 'row'>
                             <SessionTimeDisplay prop3 = '25 : 00'/>
                             <div style = {{margin:'auto'}}>
