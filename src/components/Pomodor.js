@@ -25,6 +25,7 @@ class Pomodor extends Component {
                                 Session Length
                                 <button className = 'btn2'>+</button>
                             </span>
+                            <SessionLength prop2 = {'25'}/>
                         </h4>
                         </div>
                         </div>
@@ -35,6 +36,7 @@ class Pomodor extends Component {
                                     Break Length
                                     <button className = 'btn4'>+</button>
                                 </span>
+                                <BreakLength prop1 = {'5'}/>
                             </h4>
                             </div>
                         </div>
@@ -45,19 +47,9 @@ class Pomodor extends Component {
                             </div>
                         </div>
                     </div>
-             {/* <BreakLength prop1 = {'4'}/>   */}
-        
-{/*                     
-                            <div className = 'col-6'>
-                                <button>+</button>
-                                    <h4 style={{fontSize:'2.2rem'}}>Session Length</h4>
-                                <button>-</button>
-                                <SessionLength prop2 = {'25'} />
-                            </div> */}
             </div>
         )
     }
-
 }
 /* Redux State variables to hold data */
 const mapStateToProps = state => {

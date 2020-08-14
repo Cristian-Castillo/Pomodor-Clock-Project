@@ -39,12 +39,12 @@ button:focus {outline:0;}
 
 .btn3{
     position:relative;
-    right:21.3px;
+    right:22px;
 }
 
 .btn4{
     position:relative;
-    left:21.3px;
+    left:22px;
 }
 
 /* Responsive div holds child components */ 
