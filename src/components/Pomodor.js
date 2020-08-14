@@ -19,10 +19,31 @@ class Pomodor extends Component {
                             <h1 className = 'pomodorTitle'>Pomodor Clock</h1>
                         </div>
                         <div className ='row'>
-                            <div className ='col-6'><BreakLength prop1 = {'5'}/></div>
-                            <div className = 'col-6'><SessionLength prop2 = {'25'} /></div>
+                            
+                            <div className ='col-6'>
+                                <h5>
+                                    <span>
+                                        <button>-</button>
+                                            Break Length
+                                        <button>+</button>
+                                    </span>
+                                </h5>
+                                <BreakLength prop1 = {'4'}/>  
+                            </div>
+                    
+                            <div className = 'col-6'>
+                                <h5>
+                                    <span>
+                                        <button>-</button>
+                                            Session Length
+                                        <button>+</button>
+                                    </span>
+                                </h5>
+                                <SessionLength prop2 = {'25'} />
+                            </div>
+                            
                         </div>
-                        <div className = 'row'>
+                        <div style= {{marginTop:'30px'}}className = 'row'>
                             <SessionTimeDisplay prop3 = '25 : 00'/>
                             <div style = {{margin:'auto'}}>
                                 <h3 className ='playStyle'>Play</h3>

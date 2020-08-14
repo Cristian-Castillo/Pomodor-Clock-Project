@@ -10,6 +10,16 @@
     margin:-15px 0px 0px 0px;
 }
 
+button{
+    margin:auto;
+    color:var(--customCyan);
+    background-color:#282c34;
+    border-radius:10px;
+    border-style:none;
+    outline:none;
+}
+button:focus {outline:0;}
+
 /* Responsive div holds child components */ 
 .container-fluid{
     margin: 0px 5px 0px 5px;
@@ -18,7 +28,7 @@
 /* Break Len & Session Len Cols */
 .col-6{
     margin-top:20px;
-    padding:22px;
+    padding:20px;
 }
 
 /* Main Pomodor Title */
@@ -29,7 +39,6 @@
 
 /* Play button */
 .playStyle{
-    margin-top:15px;
+    margin-top:20px;
 }
-
 
