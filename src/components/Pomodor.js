@@ -17,7 +17,7 @@ class Pomodor extends Component {
                 <h1 className = 'pomodorTitle'>Pomodor Clock</h1>
                     {/* Container with child components to display rendered props from state redux */}
                     <div className ='container-fluid'>
-                        <div className ='row'>
+                        <div className ='row r1'>
                             <div className ='col-6'><BreakLength prop1 = {'5'}/></div>
                             <div className = 'col-6'><SessionLength prop2 = {'25'} /></div>
                         </div>

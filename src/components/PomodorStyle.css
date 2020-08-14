@@ -11,26 +11,29 @@
 
 /* Responsive div holds child components */ 
 .container-fluid{
-    margin:3px;
-    width:100%;
-    padding-bottom:60px;
-
+    height:400px;
+    width:auto;
+    margin:auto;
 }
 
 /* Break & Session grid sys boot */
 .col-6{
-    width:500px;
     height:200px;
+    width:300px;
 }
 
 /* Header Title of Body */
 .pomodorTitle{
-    font-size:75px;
-    position:relative;
-    top:10px;
+    margin-top:200px;
+    font-size:3em;
 }
 
 /* Play button */
 .playStyle{
-    margin:auto;
+    margin:-100px auto auto auto;
+    font-size:35px;
+}
+
+.r1{
+    margin-top:-200px;
 }
