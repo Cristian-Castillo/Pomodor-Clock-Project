@@ -1,6 +1,7 @@
 /* CSS declared variables */
 :root{
-  --customCyan:#61dafb
+  --customCyan:#61dafb;
+  --darkKnight:#0b0c0c;
 }
 
 body{
@@ -8,7 +9,7 @@ body{
   font-family: 'Orbitron', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34;
+  background-color:var(--darkKnight);
 }
 
 h1,h2,h3,h4,h5,h6{

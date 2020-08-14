@@ -1,6 +1,6 @@
 /* Body of App */
 .App-header {
-    background-color: #282c34;
+    background-color:var(--darkKnight);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,13 +11,20 @@
 }
 
 button{
-    margin:auto;
     color:var(--customCyan);
-    background-color:#282c34;
-    border-radius:10px;
-    border-style:none;
+    background-color:var(--darkKnight);
+    border-radius:50%;
     outline:none;
+    border:3px solid var(--customCyan);
+    height:50px;
+    width:50px;
 }
+
+button:hover{
+    background-color:var(--customCyan);
+    color:var(--darkKnight);
+}
+
 button:focus {outline:0;}
 
 /* Responsive div holds child components */ 
@@ -25,20 +32,15 @@ button:focus {outline:0;}
     margin: 0px 5px 0px 5px;
 }
 
-/* Break Len & Session Len Cols */
-.col-6{
-    margin-top:20px;
-    padding:20px;
-}
-
 /* Main Pomodor Title */
 .pomodorTitle{
     font-size:4.2rem;
     margin:auto;
+    margin-bottom:35px;
 }
 
 /* Play button */
 .playStyle{
-    margin-top:20px;
+    margin-top:35px;
 }
 
