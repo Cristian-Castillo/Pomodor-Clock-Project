@@ -147,6 +147,12 @@ class Pomodor extends Component {
                                         </h3>
                                     </div>
                                 </div>
+                                <div style = {{marginTop:'25px'}}className ='row'>
+                                    <div>
+                                        <h5>Designed and Coded By</h5>
+                                        <h5>Cristian C. Castillo</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -177,3 +183,4 @@ const mapDispatchToProps = dispatch => {
 
 /* Connect and map state and dispatch with app component */
 export default connect(mapStateToProps,mapDispatchToProps)(Pomodor);
+
