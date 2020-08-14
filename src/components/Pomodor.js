@@ -18,32 +18,26 @@ class Pomodor extends Component {
                         <div className ='row'>
                             <h1 className = 'pomodorTitle'>Pomodor Clock</h1>
                         </div>
-                            <div className ='row'>
-                                <div className ='col'>
-                                    <button>-</button>
-                                </div>
-                                <div className ='col'>
-                                    <h4 style={{fontSize:'2rem'}}>Break Length</h4>
-                                    <div className ='col'>
-                                        <BreakLength prop1 = {'5'}/>
-                                    </div>
-                                </div>
-                                <div className ='col'>
-                                    <button>+</button>
-                                </div>
-                                <div className ='col'>
-                                    <button>-</button>
-                                </div>
-                                <div className ='col'>
-                                    <h4 style={{fontSize:'2rem'}}>Session Length</h4>
-                                    <div className ='col'>
-                                        <SessionLength prop2 = {'25'}/>
-                                    </div>
-                                </div>
-                                <div className ='col'>
-                                    <button>+</button>
-                                </div>
-                            </div>              
+                        <div className = 'row'>
+                        <div class="col">
+                        <h4><span>
+                                <button className = 'btn1'>-</button>
+                                Session Length
+                                <button className = 'btn2'>+</button>
+                            </span>
+                        </h4>
+                        </div>
+                        </div>
+                        <div className ='row'>
+                            <div class="col">
+                            <h4><span>
+                                    <button className = 'btn3'>-</button>
+                                    Break Length
+                                    <button className = 'btn4'>+</button>
+                                </span>
+                            </h4>
+                            </div>
+                        </div>
                         <div style= {{marginTop:'30px'}} className = 'row'>
                             <SessionTimeDisplay prop3 = '25 : 00'/>
                             <div style = {{margin:'auto'}}>
