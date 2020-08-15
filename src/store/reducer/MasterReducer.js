@@ -6,10 +6,15 @@ const initialState = {
 }
 
 const MasterReducer = (state = initialState, action) => {
+    
+
     switch(action.type){
         case ActionTypes.PLAY:
-            console.log(action)
-            console.log('does this work: ' + action.sessionVal + ' = ' + ' ' + action.breakVal)
+            return{
+                ...state,
+                masterSessionCount:state.masterSessionCount = action.sessionVal,
+                masterBreakCount:state.masterBreakCount = action.breakVal,
+            }
         default:
             return state
     }

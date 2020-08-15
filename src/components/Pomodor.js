@@ -12,7 +12,7 @@ import { FaPlayCircle } from 'react-icons/fa'
 import {FaPauseCircle} from 'react-icons/fa'
 import {MdSettingsBackupRestore} from 'react-icons/md'
 
-class Pomodor extends Component {
+class Pomodor extends Component{
 
     /* DOM INTERACTIVE ANIMATION ON CLICK*/
     animateHandleButton = () => {
@@ -66,8 +66,7 @@ class Pomodor extends Component {
         }
     }
     /* End of Button Animation for DOM */
-
-    render() {        
+    render() {
 
         return (
             <div className ='App-header'>
@@ -113,19 +112,16 @@ class Pomodor extends Component {
                             </div>
                         </div>
                         <div style= {{marginTop:'30px'}} className = 'row'>
-                            <SessionTimeDisplay prop3 = {this.props.masterCtr}/>
+                            <SessionTimeDisplay propFlag = {this.props.flag} propMasterMinute = {this.props.masterCtr} propMasterSecond = {this.props.masterSec}/>
                             <div style = {{margin:'auto'}}>
                                 <div className = 'row'>
                                     <div className = 'col'>
                                         <h3>
-                                            <button  onMouseDown = {this.animateHandleButton} 
+                                            <button id ='time' onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
                                                 className ='playStyle' 
-                                                onClick = {()=>{
-                                                    /* Invoked Anonymous function and 
-                                                    set the user values for session & Break*/
-                                                    this.props.playHandle(this.props.ctr,this.props.ctr2)
-                                                }}><FaPlayCircle />
+                                                onClick = {()=> this.props.playHandle(this.props.ctr,this.props.ctr2,this.props.flag)}
+                                                ><FaPlayCircle />
                                             </button>
                                         </h3>
                                     </div>
@@ -169,7 +165,9 @@ const mapStateToProps = state => {
     return{
         ctr:state.reSession.countSession,
         ctr2:state.reBreak.countBreak,
-        masterCtr:state.reMaster.masterSessionCount
+        masterCtr:state.reMaster.masterSessionCount,
+        masterSec:state.reMaster.masterBreakCount,
+        flag:state.reMaster.masterFlag
     }
 }
 
