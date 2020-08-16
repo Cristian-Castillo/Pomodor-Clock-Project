@@ -62,7 +62,7 @@ button:focus {outline:0;}
 
 /* Play, Pause, and Reset button */
 .playStyle{
-    margin-top:30px;
+    margin-top:10px;
     border-style:none;
     background-color:var(--darkKnight);
     height:60px;

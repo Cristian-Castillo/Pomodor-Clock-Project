@@ -111,8 +111,8 @@ class Pomodor extends Component{
                                 </h4>
                             </div>
                         </div>
-                        <div style= {{marginTop:'30px'}} className = 'row'>
-                            <SessionTimeDisplay propFlag = {this.props.flag} propMasterMinute = {this.props.ctr} />
+                        <div style= {{marginTop:'35px'}} className = 'row'>
+                            <SessionTimeDisplay propsPauseFlag = {this.props.pauseFlag}  propFlag = {this.props.flag} propMasterMinute = {this.props.ctr} />
                             <div style = {{margin:'auto'}}>
                                 <div className = 'row'>
                                     <div className = 'col'>
@@ -128,7 +128,8 @@ class Pomodor extends Component{
                                     <div className = 'col'>
                                         <h3><button onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
-                                                className ='playStyle' 
+                                                className ='playStyle'
+                                                onClick = {this.props.pauseHandle}
                                                 ><FaPauseCircle />
                                             </button>
                                         </h3>
@@ -144,7 +145,7 @@ class Pomodor extends Component{
                                         </h3>
                                     </div>
                                 </div>
-                                <div style = {{marginTop:'25px'}}className ='row'>
+                                <div style = {{marginTop:'20px'}} className ='row'>
                                     <div>
                                         <h5>Designed and Coded By</h5>
                                         <h5>Cristian C. Castillo</h5>
@@ -168,7 +169,10 @@ const mapStateToProps = state => {
         ctr2:state.reBreak.countBreak,
         masterCtr:state.reMaster.masterSessionCount,
         masterSec:state.reMaster.masterBreakCount,
-        flag:state.reMaster.masterFlag
+        reset:state.reMaster.masterReset,
+        flag:state.reMaster.masterFlag,
+        pauseFlag:state.reMaster.masterPause,
+
     }
 }
 
@@ -180,7 +184,8 @@ const mapDispatchToProps = dispatch => {
         incrementCount:()=> dispatch({type:ActionTypes.INCREMENT}),
         decrementCount:()=> dispatch({type:ActionTypes.DECREMENT}),
         playHandle:(num1,flagging)=> dispatch({type:ActionTypes.PLAY,sessionVal:num1,flagVal:flagging}),
-        resetHandle:()=> dispatch({type:ActionTypes.RESET})
+        resetHandle:()=> dispatch({type:ActionTypes.RESET}),
+        pauseHandle:()=> dispatch({type:ActionTypes.PAUSE})
     }
 }
 

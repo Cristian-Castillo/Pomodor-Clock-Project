@@ -11,6 +11,7 @@ class SessionTimeDisplay extends Component{
             masterSeconds:59,
             propMasterMinute:null,
             localFlag:false,
+            pauseFlag:false
         }
     }
     render(){    
@@ -22,15 +23,26 @@ class SessionTimeDisplay extends Component{
             this.setState({
                 ...objTemp,
                 propMasterMinute:propMasterMinute-1,
-                localFlag:true
+                localFlag:true,
             })
+        }
+        let display = null
+
+        if(this.props.propFlag === true){
+            display = (<h1 className ='fontSesh'>{this.state.propMasterMinute} : {this.state.masterSeconds}</h1>)
+        }
+        if(this.props.propsPauseFlag === true && this.props.propFlag === true){
+            display = (<h1 className = 'fontSesh'>PAUSE</h1>)
+        }
+        else{
+            display = (<h1 className ='fontSesh'>{this.props.propFlag === true ? this.state.propMasterMinute : this.props.propMasterMinute} : {this.props.propFlag === true ? this.state.masterSeconds : '00'}</h1>)
         }
 
         return (
             <div className = 'container-fluid'>
                 <div className = 'session-layout'>
                     <h1 className ='fontSesh'>Session</h1>
-                    <h1 className ='fontSesh'>{this.props.propFlag === true ? this.state.propMasterMinute: this.props.propMasterMinute} : {this.props.propFlag  === true ? this.state.masterSeconds : '00'}</h1>
+                    {display}
                 </div>
             </div>
         )

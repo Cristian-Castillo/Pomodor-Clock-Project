@@ -4,6 +4,7 @@
 /* Master Action Types */
 export const PLAY = 'PLAY'
 export const RESET = 'RESET'
+export const PAUSE = 'PAUSE'
 
 /* Session Length Action Types */
 export const ADD = 'ADD'
