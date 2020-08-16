@@ -112,7 +112,7 @@ class Pomodor extends Component{
                             </div>
                         </div>
                         <div style= {{marginTop:'30px'}} className = 'row'>
-                            <SessionTimeDisplay propFlag = {this.props.flag} propMasterMinute = {this.props.masterCtr} propMasterSecond = {this.props.masterSec}/>
+                            <SessionTimeDisplay propFlag = {this.props.flag} propMasterMinute = {this.props.ctr} />
                             <div style = {{margin:'auto'}}>
                                 <div className = 'row'>
                                     <div className = 'col'>
@@ -120,7 +120,7 @@ class Pomodor extends Component{
                                             <button id ='time' onMouseDown = {this.animateHandleButton} 
                                                 onMouseLeave = {this.animateHandleButton} 
                                                 className ='playStyle' 
-                                                onClick = {()=> this.props.playHandle(this.props.ctr,this.props.ctr2,this.props.flag)}
+                                                onClick = {()=> this.props.playHandle(this.props.ctr,this.props.flag)}
                                                 ><FaPlayCircle />
                                             </button>
                                         </h3>
@@ -157,6 +157,7 @@ class Pomodor extends Component{
         )
     }
 }
+
 /* 
 Redux State variables to hold data, plus accessing
 from a higher nested global level due to combine reducers
@@ -178,7 +179,7 @@ const mapDispatchToProps = dispatch => {
         subSessionCount:()=> dispatch({type:ActionTypes.SUBTRACT}),
         incrementCount:()=> dispatch({type:ActionTypes.INCREMENT}),
         decrementCount:()=> dispatch({type:ActionTypes.DECREMENT}),
-        playHandle:(num1,num2)=> dispatch({type:ActionTypes.PLAY,sessionVal:num1,breakVal:num2}),
+        playHandle:(num1,flagging)=> dispatch({type:ActionTypes.PLAY,sessionVal:num1,flagVal:flagging}),
         resetHandle:()=> dispatch({type:ActionTypes.RESET})
     }
 }
