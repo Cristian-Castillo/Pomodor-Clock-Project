@@ -1,7 +1,7 @@
 import * as ActionTypes from './ActionTypes'
 
 const initialState = {
-    countSession:25
+    countSession:25,
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,9 +16,6 @@ const reducer = (state = initialState, action) => {
                     countSession:state.countSession+1
                 }
             }
-            else{
-                return{...state}
-            }
         case ActionTypes.SUBTRACT:
             if(state.countSession > 1){
                 return{
@@ -26,13 +23,11 @@ const reducer = (state = initialState, action) => {
                     countSession:state.countSession-1
                 }
             }
-            else{
-                return{...state}
-            }
         case ActionTypes.RESET:
             return{...initialState}
+            
         default:
-            return state
+            return{...state}
     }
 } 
 

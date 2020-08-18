@@ -17,7 +17,18 @@ class SessionTimeDisplay extends Component{
     render(){    
         /* If the user inputs new value and detected copy state for setInterval 
         countdown process */
-        if(this.props.propFlag === true && this.state.localFlag === false){
+        if(this.props.propFlag === false && this.state.localFlag === true){
+            let objTemp = Object.assign({},this.state)
+            this.setState({
+                ...objTemp,
+                localFlag:false,
+                masterMinutes:25,
+                masterSeconds:59,
+                propMasterMinute:null,
+                pauseFlag:false
+            })
+        }
+        else if(this.props.propFlag === true && this.state.localFlag === false){
             const {propMasterMinute} = this.props
             let objTemp = Object.assign({},this.state)
             this.setState({
@@ -26,8 +37,9 @@ class SessionTimeDisplay extends Component{
                 localFlag:true,
             })
         }
-        let display = null
 
+        let display = null
+        /* Conditional Rendering to Session Clock */
         if(this.props.propFlag === true){
             display = (<h1 className ='fontSesh'>{this.state.propMasterMinute} : {this.state.masterSeconds}</h1>)
         }
@@ -37,7 +49,7 @@ class SessionTimeDisplay extends Component{
         else{
             display = (<h1 className ='fontSesh'>{this.props.propFlag === true ? this.state.propMasterMinute : this.props.propMasterMinute} : {this.props.propFlag === true ? this.state.masterSeconds : '00'}</h1>)
         }
-
+        
         return (
             <div className = 'container-fluid'>
                 <div className = 'session-layout'>
@@ -65,10 +77,13 @@ class SessionTimeDisplay extends Component{
                         propMasterMinute:prevState.propMasterMinute-1
                     }))
                 }
-                if(this.props.propFlag === true){
+                else if(this.props.propFlag === true){
                     this.setState((prevState) => ({
                         masterSeconds:prevState.masterSeconds-1
                     }))
+                }
+                else{
+                    clearInterval(this.myInterval)
                 }
             }
             },1000)

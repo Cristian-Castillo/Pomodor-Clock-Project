@@ -23,7 +23,10 @@ const MasterReducer = (state = initialState, action) => {
                 }
             }
             else if(state.masterFlag === false && state.masterPause === true){
-                return {...initialState}
+                return { ...state,
+                    masterSessionCount:session,
+                    masterFlag:flagVal
+                }
             }
             else{
                 return{
