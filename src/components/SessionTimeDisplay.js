@@ -14,10 +14,23 @@ class SessionTimeDisplay extends Component{
             propMasterBreak:null,
             localFlag:false,
             pauseFlag:false,
-            breakFlag:false
+            breakFlag:false,
+            beepFlag:false,
         }
     }
-    render(){    
+
+    render(){   
+        /* Handle Audio Section*/
+        let beeping = document.getElementById('beep')
+
+        if(this.state.beepFlag === true){
+            beeping.play()
+            this.setState({
+                beepFlag:false
+            })
+        }
+        /* End of Handle Audio Section*/
+
         /* If the user inputs new value and detected copy state for setInterval 
         countdown process */
         if(this.props.propFlag === false && this.state.localFlag === true){
@@ -42,8 +55,8 @@ class SessionTimeDisplay extends Component{
                 localFlag:true,
             })
         }
-        /* Conditional Rendering to Session Clock & Break Length Str */
-        let display = null
+        /* Conditional Rendering to Session Clock & Break Length Num Section */
+        let display = null,displayStr = null
 
         if(this.props.propFlag === true){
             display = (<h1 className ='fontSesh'>{this.state.propMasterMinute} : {this.state.masterSeconds}</h1>)
@@ -60,12 +73,20 @@ class SessionTimeDisplay extends Component{
         else{
             display = (<h1 className ='fontSesh'>{this.props.propFlag === true ? this.state.propMasterMinute : this.props.propMasterMinute} : {this.props.propFlag === true ? this.state.masterSeconds : '00'}</h1>)
         }
-        /* End of Conditional Rendering to Session Clock & Break Length Str */
-        
+        /* End of Conditional Rendering to Session Clock & Break Length Num Section */
+        if(this.state.breakFlag === true){
+            displayStr = (<h1 className ='fontSesh'>{this.state.masterSeconds === 0 ? 'Reset' : 'Break'}</h1>);
+        }
+        else if(this.state.breakFlag !== true){
+            displayStr = (<h1 className ='fontSesh'>Session</h1>);
+        }
+        /* Render Session & Break Str */
+
         return (
             <div className = 'container-fluid'>
                 <div className = 'session-layout'>
-                    <h1 className ='fontSesh'>{this.state.breakFlag === true ? 'Break': 'Session'}</h1>
+                    {displayStr}
+                    <audio id="beep" preload="auto" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
                     {display}
                 </div>
             </div>
@@ -77,9 +98,11 @@ class SessionTimeDisplay extends Component{
     this.myInterval = setInterval(() => {
         
         if(this.props.propFlag === true){
+
             /* If it was determined that there was a click by the user to play
             begin counting down of outer clock Session. Inner is Break length*/
             if(this.state.masterSeconds === 0){
+
                 // Seconds and minutes for session have both reached 0, switch to break 
                 // length time
                 if(this.state.masterSeconds === 0 && this.state.propMasterMinute === 0){
@@ -89,7 +112,8 @@ class SessionTimeDisplay extends Component{
                         this.setState((prevState) => ({
                             masterSeconds:prevState.masterSeconds = 59,
                             propMasterMinute:prevState.propMasterBreak,
-                            breakFlag:prevState.breakFlag = true
+                            breakFlag:prevState.breakFlag = true,
+                            beepFlag:prevState.beepFlag = true,
                         }))
                     }
                     else{
