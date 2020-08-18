@@ -2,13 +2,14 @@ import * as ActionTypes from './ActionTypes'
 
 const initialState = {
     masterSessionCount:25,
+    masterBreakCount:5,
     masterFlag:false,
     masterPause:false,
-    masterReset:false
 }
 
 const MasterReducer = (state = initialState, action) => {
     let session = action.sessionVal
+    let breakNum = action.breakVal
     
     switch(action.type){
         case ActionTypes.PLAY:
@@ -25,6 +26,7 @@ const MasterReducer = (state = initialState, action) => {
             else if(state.masterFlag === false && state.masterPause === true){
                 return { ...state,
                     masterSessionCount:session,
+                    masterBreakCount:breakNum,
                     masterFlag:flagVal
                 }
             }
@@ -32,6 +34,7 @@ const MasterReducer = (state = initialState, action) => {
                 return{
                     ...state,
                     masterSessionCount:session,
+                    masterBreakCount:breakNum,
                     masterFlag:flagVal
                 }
             }

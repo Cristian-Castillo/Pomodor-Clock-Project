@@ -16,12 +16,18 @@ const reducer = (state = initialState, action) => {
                     countSession:state.countSession+1
                 }
             }
+            else{
+                return {...state}
+            }
         case ActionTypes.SUBTRACT:
             if(state.countSession > 1){
                 return{
                     ...state,
                     countSession:state.countSession-1
                 }
+            }
+            else{
+                return {...state}
             }
         case ActionTypes.RESET:
             return{...initialState}

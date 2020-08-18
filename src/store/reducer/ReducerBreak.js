@@ -14,12 +14,18 @@ const reducer = (state = initialState, action) => {
                     countBreak:state.countBreak+1
                 }
             }
+            else{
+                return {...state}
+            }
         case ActionTypes.DECREMENT:
             if(state.countBreak > 1){
                 return{
                     ...state,
                     countBreak:state.countBreak-1
                 }
+            }
+            else{
+                return {...state}
             }
         case ActionTypes.RESET:
             return{...initialState}

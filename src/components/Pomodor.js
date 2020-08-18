@@ -68,6 +68,8 @@ class Pomodor extends Component{
     /* End of Button Animation for DOM */
     render() {
 
+        console.log(this.propMasterMinute)
+
         return (
             <div className ='App-header'>
                     {/* Container with child components to display rendered props from state redux */}
@@ -112,52 +114,58 @@ class Pomodor extends Component{
                             </div>
                         </div>
                         <div style= {{marginTop:'35px'}} className = 'row'>
-                            <SessionTimeDisplay propsPauseFlag = {this.props.pauseFlag}  propFlag = {this.props.flag} propMasterMinute = {this.props.ctr} />
-                            <div style = {{margin:'auto'}}>
-                                <div className = 'row'>
-                                    <div className = 'col'>
-                                        <h3>
-                                            <button id ='time' onMouseDown = {this.animateHandleButton} 
-                                                onMouseLeave = {this.animateHandleButton} 
-                                                className ='playStyle' 
-                                                onClick = {()=> this.props.playHandle(this.props.ctr,this.props.flag)}
-                                                ><FaPlayCircle />
-                                            </button>
-                                        </h3>
-                                    </div>
-                                    <div className = 'col'>
-                                        <h3><button onMouseDown = {this.animateHandleButton} 
-                                                onMouseLeave = {this.animateHandleButton} 
-                                                className ='playStyle'
-                                                onClick = {this.props.pauseHandle}
-                                                ><FaPauseCircle />
-                                            </button>
-                                        </h3>
-                                    </div>
-                                    <div className = 'col'>
-                                        <h3 style = {{color:'cyan'}}>
-                                            <button onMouseDown = {this.animateHandleButton} 
-                                                onMouseLeave = {this.animateHandleButton} 
-                                                className ='playStyle'
-                                                onClick = {this.props.resetHandle}>
-                                                <MdSettingsBackupRestore />
-                                            </button>
-                                        </h3>
-                                    </div>
+                            <SessionTimeDisplay 
+                            propsPauseFlag = {this.props.pauseFlag} 
+                            propFlag = {this.props.flag} 
+                            propBreak = {this.props.ctr2}
+                            propMasterMinute = {this.props.ctr} />
+                        <div style = {{margin:'auto'}}>
+                            <div className = 'row'>
+                                <div className = 'col'>
+                                    <h3>
+                                        <button id ='time' onMouseDown = {this.animateHandleButton} 
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            className ='playStyle' 
+                                            onClick = {()=> this.props.playHandle(this.props.ctr2,this.props.ctr,this.props.flag)}
+                                            ><FaPlayCircle />
+                                        </button>
+                                    </h3>
                                 </div>
-                                <div style = {{marginTop:'20px'}} className ='row'>
-                                    <div>
-                                        <h5>Designed and Coded By</h5>
-                                        <h5>Cristian C. Castillo</h5>
-                                    </div>
+                                <div className = 'col'>
+                                    <h3>
+                                        <button onMouseDown = {this.animateHandleButton} 
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            className ='playStyle'
+                                            onClick = {this.props.pauseHandle}
+                                            ><FaPauseCircle />
+                                        </button>
+                                    </h3>
+                                </div>
+                                <div className = 'col'>
+                                    <h3 style = {{color:'cyan'}}>
+                                        <button onMouseDown = {this.animateHandleButton} 
+                                            onMouseLeave = {this.animateHandleButton} 
+                                            className ='playStyle'
+                                            onClick = {this.props.resetHandle}>
+                                            <MdSettingsBackupRestore />
+                                        </button>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div style = {{marginTop:'20px'}} className ='row'>
+                                <div>
+                                    <h5>Designed and Coded By</h5>
+                                    <h5>Cristian C. Castillo</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         )
     }
 }
+
 
 /* 
 Redux State variables to hold data, plus accessing
@@ -168,7 +176,7 @@ const mapStateToProps = state => {
         ctr:state.reSession.countSession,
         ctr2:state.reBreak.countBreak,
         masterCtr:state.reMaster.masterSessionCount,
-        masterSec:state.reMaster.masterBreakCount,
+        masterBreak:state.reMaster.masterBreakCount,
         reset:state.reMaster.masterReset,
         flag:state.reMaster.masterFlag,
         pauseFlag:state.reMaster.masterPause,
@@ -183,7 +191,7 @@ const mapDispatchToProps = dispatch => {
         subSessionCount:()=> dispatch({type:ActionTypes.SUBTRACT}),
         incrementCount:()=> dispatch({type:ActionTypes.INCREMENT}),
         decrementCount:()=> dispatch({type:ActionTypes.DECREMENT}),
-        playHandle:(num1,flagging)=> dispatch({type:ActionTypes.PLAY,sessionVal:num1,flagVal:flagging}),
+        playHandle:(num,num1,flagging)=> dispatch({type:ActionTypes.PLAY,breakVal:num,sessionVal:num1,flagVal:flagging}),
         resetHandle:()=> dispatch({type:ActionTypes.RESET}),
         pauseHandle:()=> dispatch({type:ActionTypes.PAUSE})
     }
