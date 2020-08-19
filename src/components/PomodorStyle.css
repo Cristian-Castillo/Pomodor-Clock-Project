@@ -44,11 +44,11 @@ button:focus {outline:0;}
 
 /* Responsive div holds child components */ 
 .container-fluid{
-    margin: 0px 5px 0px 5px;
+    margin: 0px 0px 0px 0px;
 }
 /* All rows */
 .row{
-    margin-top:5px;
+    margin-top:0px;
 }
 
 /* Main Pomodor Title */
