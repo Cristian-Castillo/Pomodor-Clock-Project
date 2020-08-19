@@ -8,8 +8,8 @@ class SessionTimeDisplay extends Component{
         super(props);
         this.state = {
             masterMinutes:25,
-            masterSeconds:59,
-            masterBreakSeconds:59,
+            masterSeconds:3,
+            masterBreakSeconds:3,
             propMasterMinute:null,
             propMasterBreak:null,
             localFlag:false,
@@ -26,7 +26,7 @@ class SessionTimeDisplay extends Component{
         if(this.state.beepFlag === true){
             beeping.play()
             this.setState({
-                beepFlag:false
+                beepFlag:false,
             })
         }
         /* End of Handle Audio Section*/
@@ -41,7 +41,8 @@ class SessionTimeDisplay extends Component{
                 masterMinutes:25,
                 masterSeconds:59,
                 propMasterMinute:null,
-                pauseFlag:false
+                pauseFlag:false,
+                breakFlag:false
             })
         }
         else if(this.props.propFlag === true && this.state.localFlag === false){
@@ -57,30 +58,29 @@ class SessionTimeDisplay extends Component{
         }
         /* Conditional Rendering to Session Clock & Break Length Num Section */
         let display = null,displayStr = null
+        const seeBreak = 'Break'
+        const seeSession = 'Session'
+        const seeReset = 'Reset'
 
         if(this.props.propFlag === true){
             display = (<h1 className ='fontSesh'>{this.state.propMasterMinute} : {this.state.masterSeconds}</h1>)
         }
-        else if(this.props.propsPauseFlag === true && this.props.propFlag === true){
+        if(this.props.propsPauseFlag === true && this.props.propFlag === true){
             display = (<h1 className = 'fontSesh'>PAUSE</h1>)
-        }
-        else if(this.state.breakFlag === true){
-    
-            this.setState({
-                breakFlag:false
-            })
         }
         else{
             display = (<h1 className ='fontSesh'>{this.props.propFlag === true ? this.state.propMasterMinute : this.props.propMasterMinute} : {this.props.propFlag === true ? this.state.masterSeconds : '00'}</h1>)
         }
-        /* End of Conditional Rendering to Session Clock & Break Length Num Section */
+
+        if(this.state.breakFlag === !true){
+            displayStr = (<h1 className ='fontSesh'>{seeSession}</h1>)
+        }
         if(this.state.breakFlag === true){
-            displayStr = (<h1 className ='fontSesh'>{this.state.masterSeconds === 0 ? 'Reset' : 'Break'}</h1>);
+            displayStr = (<h1 className ='fontSesh'>{seeBreak}</h1>)
         }
-        else if(this.state.breakFlag !== true){
-            displayStr = (<h1 className ='fontSesh'>Session</h1>);
+        if(this.state.masterMinutes === 25 && this.state.masterSeconds === 0 && this.state.breakFlag === true){
+            displayStr = (<h1 className ='fontSesh'>{this.state.breakFlag === !true ? seeBreak : seeReset}</h1>)
         }
-        /* Render Session & Break Str */
 
         return (
             <div className = 'container-fluid'>
@@ -110,7 +110,7 @@ class SessionTimeDisplay extends Component{
                     /* BREAK LENGTH TIMER SECTION */
                     if(this.state.breakFlag !== true){
                         this.setState((prevState) => ({
-                            masterSeconds:prevState.masterSeconds = 59,
+                            masterSeconds:prevState.masterSeconds = 3,
                             propMasterMinute:prevState.propMasterBreak,
                             breakFlag:prevState.breakFlag = true,
                             beepFlag:prevState.beepFlag = true,
@@ -126,7 +126,7 @@ class SessionTimeDisplay extends Component{
 
                             this.setState((prevState) => ({
                                 propMasterMinute:prevState.propMasterBreak-1,
-                                masterSeconds:prevState.masterSeconds = 59
+                                masterSeconds:prevState.masterSeconds = 3
                             }))
                         }
                         this.setState((prevState) => ({
@@ -138,7 +138,7 @@ class SessionTimeDisplay extends Component{
                     /* END OF BREAK LENGTH TIMER SECTION */
                 }
                 this.setState((prevState) => ({
-                    masterSeconds:prevState.masterSeconds = 59,
+                    masterSeconds:prevState.masterSeconds = 3,
                     propMasterMinute:prevState.propMasterMinute-1
                 }))
             }
