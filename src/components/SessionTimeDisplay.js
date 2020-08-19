@@ -8,8 +8,8 @@ class SessionTimeDisplay extends Component{
         super(props);
         this.state = {
             masterMinutes:25,
-            masterSeconds:3,
-            masterBreakSeconds:3,
+            masterSeconds:59,
+            masterBreakSeconds:59,
             propMasterMinute:null,
             propMasterBreak:null,
             localFlag:false,
@@ -110,7 +110,7 @@ class SessionTimeDisplay extends Component{
                     /* BREAK LENGTH TIMER SECTION */
                     if(this.state.breakFlag !== true){
                         this.setState((prevState) => ({
-                            masterSeconds:prevState.masterSeconds = 3,
+                            masterSeconds:prevState.masterSeconds = 59,
                             propMasterMinute:prevState.propMasterBreak,
                             breakFlag:prevState.breakFlag = true,
                             beepFlag:prevState.beepFlag = true,
@@ -126,7 +126,7 @@ class SessionTimeDisplay extends Component{
 
                             this.setState((prevState) => ({
                                 propMasterMinute:prevState.propMasterBreak-1,
-                                masterSeconds:prevState.masterSeconds = 3
+                                masterSeconds:prevState.masterSeconds = 59
                             }))
                         }
                         this.setState((prevState) => ({
@@ -138,7 +138,7 @@ class SessionTimeDisplay extends Component{
                     /* END OF BREAK LENGTH TIMER SECTION */
                 }
                 this.setState((prevState) => ({
-                    masterSeconds:prevState.masterSeconds = 3,
+                    masterSeconds:prevState.masterSeconds = 59,
                     propMasterMinute:prevState.propMasterMinute-1
                 }))
             }
