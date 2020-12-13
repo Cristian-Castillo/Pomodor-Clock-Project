@@ -5,5 +5,5 @@ visit the site live: https://pomodor-clock-project.vercel.app/
 
 ### App Walkthrough GIF
 
-<img src="http://g.recordit.co/Bdl5myQZKl.gif" width=250><br>
+<img src="http://g.recordit.co/Bdl5myQZKl.gif" width=450><br>
 
